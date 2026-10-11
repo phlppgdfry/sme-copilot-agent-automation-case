@@ -89,7 +89,8 @@ Screenshots van de landingspagina en elke stap van de rondleiding: [docs/screens
 | [`tests/`](tests/) | testset (40 vragen) en tests voor agent, flow en governance |
 | [`governance/`](governance/) | environments, DLP-policies, solution-manifesten |
 | [`copilot-studio/`](copilot-studio/README.md) | bouwgids, importbestand, Word-versies van de documenten, resultaten |
-| `site/` | GitHub Pages: landingspagina, demo, rol-lens; `site/assets/lib/` = simulator, flowregels, check, scoring |
+| [`application-kit/`](application-kit/export-plan.md) | one-pager en interview-deck (PDF), demoscripts 2/5/15 min, views per lezer |
+| `site/` | GitHub Pages: landingspagina, demo, rol-lens, deck, one-pager; `site/assets/lib/` = simulator, flowregels, check, scoring |
 | `scripts/` | data bouwen, Word-export, linkcheck |
 
 ## Sources, data and licences

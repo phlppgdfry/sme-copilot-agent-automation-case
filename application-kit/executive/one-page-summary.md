@@ -33,4 +33,4 @@ Inspiratiesessie → discovery-workshop met technici en ploegbazen ("wat doe je 
 | Governance | [governance-pakket](../../docs/07-govern/governance-pakket.md) |
 | Change & Adoption | [overdracht](../../docs/08-adopt/overdracht-change-adoption.md) |
 
-Demo: https://phlppgdfry.github.io/sme-copilot-agent-automation-case/demo/?tour
+Demo: https://phlppgdfry.github.io/sme-copilot-agent-automation-case/demo/?tour · PDF: [one-pager.pdf](../exports/one-pager.pdf)
