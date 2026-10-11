@@ -1,0 +1,16 @@
+{
+  "name": "Urenstaten wekelijks doorsturen",
+  "solution": null,
+  "kind": "flow",
+  "environment": "Default",
+  "stage": "in gebruik",
+  "managed": false,
+  "owner": { "type": "person", "id": "technicus (persoonlijk account)" },
+  "businessOwner": null,
+  "flows": [
+    { "name": "Urenstaten ploeg → privémail", "connectors": ["SharePoint", "Gmail"], "writes": false, "finance": false, "humanApproval": false }
+  ],
+  "environmentVariables": [],
+  "hardcodedUrls": ["https://brevan.sharepoint.example/sites/planning/Urenstaten"],
+  "found": "Gevonden door de IT-verantwoordelijke. Behoefte achter de flow: urenstaten van de ploeg thuis kunnen nakijken (docs/02-discover/workshopnotities.md)."
+}

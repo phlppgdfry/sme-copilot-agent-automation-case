@@ -1,0 +1,304 @@
+{
+  "note": "Illustrative assumption — fictional organisation. Scores 1–5 from the discovery workshop (docs/02-discover/workshopnotities.md).",
+  "useCases": [
+    {
+      "id": "UC-01",
+      "titel": "Vragen over personeelszaken beantwoorden",
+      "rollen": [
+        "technici",
+        "ploegbazen",
+        "HR"
+      ],
+      "probleem": "HR krijgt elke dag dezelfde vragen over onkosten, verlof en kledij; ±40% staat letterlijk in het handboek.",
+      "type": "agent",
+      "waarde": {
+        "frequentie": 5,
+        "tijd": 3,
+        "pijn": 4
+      },
+      "haalbaarheid": {
+        "data": 4,
+        "eigenaar": 5,
+        "licentie": 4
+      },
+      "risico": 2,
+      "eigenaar": "HR-manager",
+      "kost": "Copilot Studio-verbruik (credits) voor ±92 technici zonder M365 Copilot-licentie",
+      "beslissing": "poc",
+      "reden": "Vaak, duidelijke bron, eigenaar wil meewerken. Voorwaarde: alleen de gepubliceerde bibliotheek (R1, R2)."
+    },
+    {
+      "id": "UC-02",
+      "titel": "Onkostennota indienen met foto van het bonnetje",
+      "rollen": [
+        "technici",
+        "ploegbazen",
+        "boekhouding"
+      ],
+      "probleem": "Nota's komen als WhatsApp-foto of op papier, gemiddeld 3 weken te laat, 1 op 5 zonder werf.",
+      "type": "agent",
+      "waarde": {
+        "frequentie": 4,
+        "tijd": 3,
+        "pijn": 4
+      },
+      "haalbaarheid": {
+        "data": 4,
+        "eigenaar": 4,
+        "licentie": 4
+      },
+      "risico": 2,
+      "eigenaar": "financieel verantwoordelijke",
+      "kost": "agent flow in dezelfde agent; geen premium connector nodig met SharePoint-lijst",
+      "beslissing": "poc",
+      "reden": "Zelfde agent als UC-01, één extra tool. Goedkeuring blijft bij de ploegbaas (human-in-the-loop)."
+    },
+    {
+      "id": "UC-03",
+      "titel": "Werkbon → factuurvoorstel in het ERP",
+      "rollen": [
+        "planning",
+        "boekhouding"
+      ],
+      "probleem": "Werkbonnen worden overgetypt in Business Central; fouten in uren en materiaal.",
+      "type": "flow",
+      "waarde": {
+        "frequentie": 5,
+        "tijd": 4,
+        "pijn": 4
+      },
+      "haalbaarheid": {
+        "data": 2,
+        "eigenaar": 3,
+        "licentie": 3
+      },
+      "risico": 3,
+      "eigenaar": "financieel verantwoordelijke",
+      "kost": "Business Central-connector, externe ERP-partner nodig",
+      "beslissing": "later",
+      "reden": "Hoge waarde, maar de werkbondata is onvolledig en de ERP-partner moet mee. Eerst datakwaliteit (artikelcodes) — fase 2."
+    },
+    {
+      "id": "UC-04",
+      "titel": "Offertes samenvatten en een eerste versie opstellen",
+      "rollen": [
+        "binnendienst"
+      ],
+      "probleem": "Binnendienst zoekt in oude offertes en mails naar vergelijkbare projecten.",
+      "type": "copilot",
+      "waarde": {
+        "frequentie": 4,
+        "tijd": 3,
+        "pijn": 3
+      },
+      "haalbaarheid": {
+        "data": 3,
+        "eigenaar": 4,
+        "licentie": 5
+      },
+      "risico": 2,
+      "eigenaar": "verantwoordelijke binnendienst",
+      "kost": "geen: valt onder de 25 bestaande Copilot-licenties",
+      "beslissing": "training",
+      "reden": "Geen bouw nodig: Copilot in Word en Outlook doet dit. Training met 3 echte taken per rol."
+    },
+    {
+      "id": "UC-05",
+      "titel": "Verslagen van het werfoverleg",
+      "rollen": [
+        "ploegbazen",
+        "planning"
+      ],
+      "probleem": "Werfoverleg in Teams zonder verslag; afspraken raken zoek.",
+      "type": "copilot",
+      "waarde": {
+        "frequentie": 3,
+        "tijd": 3,
+        "pijn": 3
+      },
+      "haalbaarheid": {
+        "data": 4,
+        "eigenaar": 4,
+        "licentie": 4
+      },
+      "risico": 2,
+      "eigenaar": "operationeel directeur",
+      "kost": "Copilot-licentie voor de 14 ploegbazen (nu niet gelicentieerd) — beslissing nodig",
+      "beslissing": "training",
+      "reden": "Copilot in Teams (recap). Eerst testen met de 3 gelicentieerde planners; licentie voor ploegbazen pas na meting."
+    },
+    {
+      "id": "UC-06",
+      "titel": "Veiligheidsprocedures opzoeken op de werf (LMRA, VCA)",
+      "rollen": [
+        "technici",
+        "preventieadviseur"
+      ],
+      "probleem": "Technici bellen de preventieadviseur voor procedures die in een PDF staan.",
+      "type": "agent",
+      "waarde": {
+        "frequentie": 3,
+        "tijd": 2,
+        "pijn": 4
+      },
+      "haalbaarheid": {
+        "data": 3,
+        "eigenaar": 4,
+        "licentie": 4
+      },
+      "risico": 4,
+      "eigenaar": "preventieadviseur",
+      "kost": "tweede kennisbron in Brevan Assist",
+      "beslissing": "later",
+      "reden": "Veiligheidskritisch: een fout antwoord kan letsel geven. Alleen met letterlijke citaten en eigen testset, na de PoC."
+    },
+    {
+      "id": "UC-07",
+      "titel": "Planning van technici optimaliseren met AI",
+      "rollen": [
+        "planning"
+      ],
+      "probleem": "Planning gebeurt in Excel; spoedinterventies verstoren alles.",
+      "type": "niet-doen",
+      "waarde": {
+        "frequentie": 5,
+        "tijd": 4,
+        "pijn": 4
+      },
+      "haalbaarheid": {
+        "data": 1,
+        "eigenaar": 3,
+        "licentie": 2
+      },
+      "risico": 4,
+      "eigenaar": "planning",
+      "kost": "—",
+      "beslissing": "niet-doen",
+      "reden": "Geen agent-probleem: er ontbreekt een planningstool en vaardigheidsdata. Advies: eerst een planningsmodule in het ERP of een gespecialiseerd pakket."
+    },
+    {
+      "id": "UC-08",
+      "titel": "Chatbot voor klanten op de website",
+      "rollen": [
+        "klanten",
+        "binnendienst"
+      ],
+      "probleem": "Klanten bellen voor de status van hun interventie.",
+      "type": "agent",
+      "waarde": {
+        "frequentie": 3,
+        "tijd": 2,
+        "pijn": 3
+      },
+      "haalbaarheid": {
+        "data": 2,
+        "eigenaar": 2,
+        "licentie": 3
+      },
+      "risico": 4,
+      "eigenaar": "niemand aangeduid",
+      "kost": "externe kanaal + verbruik",
+      "beslissing": "later",
+      "reden": "Externe doelgroep, statusdata zit in het ERP, geen eigenaar. Pas na UC-03."
+    },
+    {
+      "id": "UC-09",
+      "titel": "Leveranciersfacturen automatisch inlezen",
+      "rollen": [
+        "boekhouding"
+      ],
+      "probleem": "±300 facturen per maand handmatig ingeven.",
+      "type": "flow",
+      "waarde": {
+        "frequentie": 4,
+        "tijd": 3,
+        "pijn": 3
+      },
+      "haalbaarheid": {
+        "data": 3,
+        "eigenaar": 4,
+        "licentie": 2
+      },
+      "risico": 2,
+      "eigenaar": "financieel verantwoordelijke",
+      "kost": "eerst nagaan wat de ERP-partner al biedt voor e-invoicing (Peppol)",
+      "beslissing": "later",
+      "reden": "Hoort waarschijnlijk in het ERP (e-facturatie), niet in Power Platform. Navragen bij de ERP-partner."
+    },
+    {
+      "id": "UC-10",
+      "titel": "Onboarding van nieuwe technici",
+      "rollen": [
+        "HR",
+        "ploegbazen"
+      ],
+      "probleem": "Checklist op papier; gsm, kledij, VCA en toegang worden vergeten.",
+      "type": "flow",
+      "waarde": {
+        "frequentie": 2,
+        "tijd": 3,
+        "pijn": 3
+      },
+      "haalbaarheid": {
+        "data": 4,
+        "eigenaar": 5,
+        "licentie": 5
+      },
+      "risico": 1,
+      "eigenaar": "HR-manager",
+      "kost": "standaardconnectors (Planner, Teams)",
+      "beslissing": "poc",
+      "reden": "Snelle winst zonder AI: flow die bij een nieuwe medewerker een Planner-checklist aanmaakt. Ideaal om de environment-strategie te testen."
+    },
+    {
+      "id": "UC-11",
+      "titel": "Herinneringen voor onderhoudscontracten",
+      "rollen": [
+        "binnendienst",
+        "klanten"
+      ],
+      "probleem": "Jaarlijkse onderhoudsbeurten worden vergeten; omzet loopt weg.",
+      "type": "proces-eerst",
+      "waarde": {
+        "frequentie": 3,
+        "tijd": 2,
+        "pijn": 4
+      },
+      "haalbaarheid": {
+        "data": 2,
+        "eigenaar": 3,
+        "licentie": 4
+      },
+      "risico": 2,
+      "eigenaar": "verantwoordelijke binnendienst",
+      "kost": "—",
+      "beslissing": "later",
+      "reden": "Contractdata staat verspreid over Excel en het ERP. Eerst één bron en een eigenaar; de flow is daarna eenvoudig."
+    },
+    {
+      "id": "UC-12",
+      "titel": "Eén chatbot met alles over onze klanten",
+      "rollen": [
+        "directie",
+        "binnendienst"
+      ],
+      "probleem": "Directie wil 'alles over een klant' kunnen vragen.",
+      "type": "niet-doen",
+      "waarde": {
+        "frequentie": 2,
+        "tijd": 2,
+        "pijn": 2
+      },
+      "haalbaarheid": {
+        "data": 1,
+        "eigenaar": 1,
+        "licentie": 3
+      },
+      "risico": 5,
+      "eigenaar": "niemand",
+      "kost": "—",
+      "beslissing": "niet-doen",
+      "reden": "Geen afgebakende vraag, geen eigenaar, persoonsgegevens en oversharing-risico. M365 Copilot dekt de echte behoefte (een klantdossier samenvatten) voor wie toegang heeft."
+    }
+  ]
+}

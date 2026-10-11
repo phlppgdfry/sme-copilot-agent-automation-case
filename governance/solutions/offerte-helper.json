@@ -1,0 +1,16 @@
+{
+  "name": "Offerte-helper (binnendienst)",
+  "solution": "OfferteHelper",
+  "kind": "agent",
+  "environment": "Dev-<maker>",
+  "stage": "dev",
+  "managed": false,
+  "owner": { "type": "person", "id": "medewerker binnendienst" },
+  "businessOwner": "verantwoordelijke binnendienst",
+  "agent": { "auth": "microsoft", "channels": ["Microsoft Teams"], "orchestration": "generative" },
+  "knowledge": [{ "name": "Offertes 2024–2026 (hele map)", "type": "SharePoint", "owner": null }],
+  "flows": [],
+  "environmentVariables": [],
+  "hardcodedUrls": [],
+  "testset": null
+}

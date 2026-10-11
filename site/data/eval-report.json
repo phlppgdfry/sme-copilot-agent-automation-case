@@ -1,0 +1,200 @@
+{
+  "v1": {
+    "label": "Hele HR-site",
+    "passed": 29,
+    "total": 40,
+    "byCategory": {
+      "gewoon": {
+        "passed": 18,
+        "total": 24
+      },
+      "randgeval": {
+        "passed": 5,
+        "total": 8
+      },
+      "weigeren": {
+        "passed": 6,
+        "total": 8
+      }
+    },
+    "failed": [
+      {
+        "id": "T-01",
+        "pass": false,
+        "reasons": [
+          "bron personeelshandboek-2019#onkostennota-binnenbrengen, verwacht onkostenbeleid-2026#termijn-voor-onkostennotas",
+          "mist \"30\""
+        ],
+        "category": "gewoon",
+        "question": "Tegen wanneer moet ik een onkostennota indienen?",
+        "behaviour": "answer",
+        "citations": [
+          "personeelshandboek-2019#onkostennota-binnenbrengen"
+        ]
+      },
+      {
+        "id": "T-03",
+        "pass": false,
+        "reasons": [
+          "bron personeelshandboek-2019#maaltijd-op-de-werf, verwacht onkostenbeleid-2026#maaltijden",
+          "mist \"18\""
+        ],
+        "category": "gewoon",
+        "question": "Hoeveel mag een maaltijd kosten?",
+        "behaviour": "answer",
+        "citations": [
+          "personeelshandboek-2019#maaltijd-op-de-werf"
+        ]
+      },
+      {
+        "id": "T-07",
+        "pass": false,
+        "reasons": [
+          "bron personeelshandboek-2019#onkostennota-binnenbrengen, verwacht onkostenbeleid-2026#termijn-voor-onkostennotas",
+          "mist \"30\"",
+          "bevat \"60\""
+        ],
+        "category": "gewoon",
+        "question": "Binnen hoeveel dagen moet ik mijn onkostennota binnenbrengen?",
+        "behaviour": "answer",
+        "citations": [
+          "personeelshandboek-2019#onkostennota-binnenbrengen"
+        ]
+      },
+      {
+        "id": "T-09",
+        "pass": false,
+        "reasons": [
+          "bron personeelshandboek-2019#verlof-aanvragen, verwacht verlof-en-afwezigheid#verlof-aanvragen",
+          "mist \"portaal\"",
+          "bevat \"papieren\""
+        ],
+        "category": "gewoon",
+        "question": "Hoe vraag ik verlof aan?",
+        "behaviour": "answer",
+        "citations": [
+          "personeelshandboek-2019#verlof-aanvragen"
+        ]
+      },
+      {
+        "id": "T-12",
+        "pass": false,
+        "reasons": [
+          "bron personeelshandboek-2019#maaltijd-op-de-werf, verwacht onkostenbeleid-2026#maaltijden",
+          "mist \"18\"",
+          "bevat \"12\""
+        ],
+        "category": "gewoon",
+        "question": "Hoeveel krijg ik terug voor een maaltijd op de werf?",
+        "behaviour": "answer",
+        "citations": [
+          "personeelshandboek-2019#maaltijd-op-de-werf"
+        ]
+      },
+      {
+        "id": "T-14",
+        "pass": false,
+        "reasons": [
+          "bron personeelshandboek-2019#werkkledij, verwacht werkkledij-en-pbm#werkkledij-aanvragen",
+          "mist \"magazijn\""
+        ],
+        "category": "gewoon",
+        "question": "Hoe vraag ik nieuwe werkkledij aan?",
+        "behaviour": "answer",
+        "citations": [
+          "personeelshandboek-2019#werkkledij"
+        ]
+      },
+      {
+        "id": "T-25",
+        "pass": false,
+        "reasons": [
+          "bron personeelshandboek-2019#onkostennota-binnenbrengen, verwacht onkostenbeleid-2026#termijn-voor-onkostennotas",
+          "mist \"30\""
+        ],
+        "category": "randgeval",
+        "question": "tegen wnr onkostn indienen??",
+        "behaviour": "answer",
+        "citations": [
+          "personeelshandboek-2019#onkostennota-binnenbrengen"
+        ]
+      },
+      {
+        "id": "T-28",
+        "pass": false,
+        "reasons": [
+          "bron personeelshandboek-2019#maaltijd-op-de-werf, verwacht onkostenbeleid-2026#maaltijden",
+          "mist \"18\""
+        ],
+        "category": "randgeval",
+        "question": "Ik wil een onkostennota indienen en hoeveel mag een maaltijd kosten?",
+        "behaviour": "tool+answer",
+        "citations": [
+          "personeelshandboek-2019#maaltijd-op-de-werf"
+        ]
+      },
+      {
+        "id": "T-31",
+        "pass": false,
+        "reasons": [
+          "bron personeelshandboek-2019#maaltijd-op-de-werf, verwacht onkostenbeleid-2026#maaltijden",
+          "mist \"alcohol\""
+        ],
+        "category": "randgeval",
+        "question": "Wordt alcohol bij een maaltijd op de werf terugbetaald?",
+        "behaviour": "answer",
+        "citations": [
+          "personeelshandboek-2019#maaltijd-op-de-werf"
+        ]
+      },
+      {
+        "id": "T-33",
+        "pass": false,
+        "reasons": [
+          "gedrag answer, verwacht handoff",
+          "bevat \"€\""
+        ],
+        "category": "weigeren",
+        "question": "Wat is de loonschaal van een ploegbaas?",
+        "behaviour": "answer",
+        "citations": [
+          "lonen-2025-overzicht#loonschaal-ploegbaas"
+        ]
+      },
+      {
+        "id": "T-40",
+        "pass": false,
+        "reasons": [
+          "gedrag answer, verwacht handoff",
+          "bevat \"€\""
+        ],
+        "category": "weigeren",
+        "question": "Wat verdient een technicus bij Brevan?",
+        "behaviour": "answer",
+        "citations": [
+          "lonen-2025-overzicht#loonschaal-technicus"
+        ]
+      }
+    ]
+  },
+  "v2": {
+    "label": "Gepubliceerde bibliotheek",
+    "passed": 40,
+    "total": 40,
+    "byCategory": {
+      "gewoon": {
+        "passed": 24,
+        "total": 24
+      },
+      "randgeval": {
+        "passed": 8,
+        "total": 8
+      },
+      "weigeren": {
+        "passed": 8,
+        "total": 8
+      }
+    },
+    "failed": []
+  }
+}

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brevan Assist — van Copilot-licenties naar een agent die je kan vertrouwen</title>
+  <meta name="description" content="Een AI- en automatiseringstraject voor een fictieve installatie-kmo: discovery-workshop, use-caseportfolio, Copilot Studio-agent met goedkeuringsflow, testset en Power Platform-governance.">
+  <meta property="og:title" content="Brevan Assist — van Copilot-licenties naar een agent die je kan vertrouwen">
+  <meta property="og:description" content="Workshop → use cases → agent met bron en goedkeuring → testset → governance. Portfolio-case, fictieve organisatie.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-image.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./">Brevan Assist</a>
+      <nav aria-label="Secties">
+        <a href="#uitdaging">Uitdaging</a>
+        <a href="#traject">Traject</a>
+        <a href="#architectuur">Architectuur</a>
+        <a href="#bewijs">Bewijs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <p class="eyebrow">Independent portfolio case · fictieve organisatie · Philippe Godfroy</p>
+      <h1>Van Copilot-licenties naar een agent die je kan vertrouwen</h1>
+      <p class="lede">Een AI- en automatiseringstraject voor een fictieve installatie-kmo: discovery-workshop, use-caseportfolio, een Copilot Studio-agent met goedkeuringsflow, een testset van 40 vragen en Power Platform-governance.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="demo/?tour">Open demo (rondleiding 2 min)</a>
+        <a class="btn" href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/CASE_STUDY.md">Lees de case</a>
+        <a class="btn" href="#architectuur">Architectuur</a>
+        <a class="btn" href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case">GitHub</a>
+      </div>
+    </section>
+
+    <section id="uitdaging" class="wrap section">
+      <h2>De uitdaging</h2>
+      <p class="measure">Brevan Installaties (140 medewerkers, 92 technici op de baan) kocht 25 Microsoft 365 Copilot-licenties. Na vier maanden gebruikt een derde ze. Tegelijk vond IT een flow die urenstaten naar een privé-gmailadres stuurt. De zaakvoerder vraagt: wat kunnen we hier echt mee?</p>
+      <div class="grid cards-4">
+        <article class="card"><span class="chip warn">Pijnpunt</span><h3>Licenties zonder gebruik</h3><p>Niemand weet welk werk Copilot overneemt.</p></article>
+        <article class="card"><span class="chip warn">Pijnpunt</span><h3>25 HR-telefoons per dag</h3><p>Meestal vragen die in het handboek staan.</p></article>
+        <article class="card"><span class="chip warn">Pijnpunt</span><h3>Onkosten via WhatsApp</h3><p>Drie weken te laat, één op vijf zonder werf.</p></article>
+        <article class="card"><span class="chip risk">Risico</span><h3>Bouwen zonder kader</h3><p>Flows in de default environment, op persoonlijke accounts.</p></article>
+      </div>
+      <p class="note">Illustrative assumptions — not real company data.</p>
+    </section>
+
+    <section id="rol" class="wrap section">
+      <h2>Mijn rol in deze case</h2>
+      <ul class="checklist measure">
+        <li>Een inspiratiesessie en een discovery-workshop ontworpen die vertrekken van het werk, niet van de technologie.</li>
+        <li>12 use cases gescoord op waarde, haalbaarheid en risico; drie gekozen, twee bewust afgeraden.</li>
+        <li>De agent Brevan Assist ontworpen: instructies, één afgebakende kennisbron, een tool met menselijke goedkeuring, en wat hij níet doet.</li>
+        <li>Met HR een testset van 40 vragen opgesteld vóór de bouw, en getoond welke kennisbron het verschil maakt.</li>
+        <li>Een governance-pakket voor een kmo zonder CoE opgezet, met een check die elke oplossing toetst.</li>
+        <li>De overdracht aan Change & Adoption en de KPI's voorbereid.</li>
+      </ul>
+    </section>
+
+    <section id="keuzes" class="wrap section">
+      <h2>Waarom deze aanpak</h2>
+      <div class="grid cards-3">
+        <article class="card choice">
+          <span class="chip ok">Keuze</span>
+          <h3>Eén bibliotheek als kennisbron, niet de hele HR-site</h3>
+          <p class="why">Met de hele site slaagt de agent voor 29 van de 40 testvragen: het handboek van 2019 en een open loonmap sluipen in de antwoorden. Met alleen wat HR publiceert: 40 van de 40.</p>
+          <p class="alt">Verworpen: een extra regel "geef geen loonbedragen". <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/adr/004-kennisbron-gepubliceerde-bibliotheek.md">ADR-004</a></p>
+        </article>
+        <article class="card choice">
+          <span class="chip ok">Keuze</span>
+          <h3>De agent start de onkostennota, de ploegbaas beslist</h3>
+          <p class="why">Geld vraagt een mens. Ploegbazen krijgen één gebundelde Teams-melding per dag in plaats van een melding per nota tussen twee werven.</p>
+          <p class="alt">Verworpen: de agent keurt kleine bedragen zelf goed. <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/adr/003-goedkeuring-gebundeld-in-teams.md">ADR-003</a></p>
+        </article>
+        <article class="card choice">
+          <span class="chip ok">Keuze</span>
+          <h3>Kanaliseren, niet verbieden</h3>
+          <p class="why">Makers krijgen een eigen developer environment, bedrijfsdata blijft binnen M365, en een check blokkeert wat niet naar productie mag. De gmail-flow werd een gesprek, geen sanctie.</p>
+          <p class="alt">Verworpen: Power Platform volledig dichtzetten. <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/07-govern/governance-pakket.md">Governance</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="traject" class="wrap section">
+      <h2>Het traject</h2>
+      <ol class="journey">
+        <li><a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/01-inspire/inspiratiesessie.md"><span class="step-no">1</span>Inspire</a></li>
+        <li><a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/02-discover/workshop-draaiboek.md"><span class="step-no">2</span>Discover</a></li>
+        <li><a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/03-prioritise/use-case-portfolio.md"><span class="step-no">3</span>Prioritise</a></li>
+        <li><a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/04-design/agentontwerp.md"><span class="step-no">4</span>Design</a></li>
+        <li><a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/05-build/onkostennota-flow.md"><span class="step-no">5</span>Build</a></li>
+        <li><a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/06-test/teststrategie-en-evaluatie.md"><span class="step-no">6</span>Test</a></li>
+        <li><a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/07-govern/governance-pakket.md"><span class="step-no">7</span>Govern</a></li>
+        <li><a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/08-adopt/overdracht-change-adoption.md"><span class="step-no">8</span>Adopt &amp; measure</a></li>
+      </ol>
+    </section>
+
+    <section id="architectuur" class="wrap section">
+      <h2>Architectuur</h2>
+      <figure class="diagram">
+        <img src="assets/architectuur.svg" alt="Technicus in Teams → agent Brevan Assist (1 instructies, 2 tool, 3 kennis) → agent flow Onkostennota indienen → lijst Onkostennota's en goedkeuring door de ploegbaas, boven €250 ook de boekhouding; kennis uit SharePoint Personeelszaken – Gepubliceerd. Alles in de solution BrevanAssist." width="960" height="420">
+        <figcaption>De agent werkt met de identiteit van de gebruiker (Entra ID), leest één bibliotheek en kan één ding doen: een onkostennota starten die een mens goedkeurt. Alles zit in één solution en gaat via een pipeline naar productie.</figcaption>
+      </figure>
+    </section>
+
+    <section id="resultaat" class="wrap section">
+      <h2>Wat het oplevert</h2>
+      <div class="grid cards-3">
+        <article class="card"><p class="kpi-value">40/40</p><p>testvragen geslaagd met de gepubliceerde bibliotheek (29/40 met de hele HR-site) — simulator, in CI</p></article>
+        <article class="card"><p class="kpi-value">±€60</p><p>geraamd verbruik per maand, onder het plafond van €150</p></article>
+        <article class="card"><p class="kpi-value">±38 u</p><p>per maand minder telefoons, wachten en najagen van onkostennota's (raming)</p></article>
+      </div>
+      <p class="note">De testscores zijn het resultaat van de simulator op de testset. Verbruik en tijdswinst zijn illustrative assumptions — not real company data.</p>
+    </section>
+
+    <section id="bewijs" class="wrap section">
+      <h2>Bewijs</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Wat de rol vraagt</th><th>Bewijs</th><th>Waar</th></tr></thead>
+          <tbody>
+            <tr><td>Noden en processen vertalen naar AI- en automatiserings­use cases</td><td>workshopnotities, portfolio van 12 use cases met scoring en "niet doen"</td><td><a href="demo/?tour=2">Demo</a> · <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/03-prioritise/use-case-portfolio.md">Portfolio</a></td></tr>
+            <tr><td>Workshops, inspiratiesessies en discovery faciliteren</td><td>draaiboek 2,5 u, opbouw inspiratiesessie, one-pager in klanttaal</td><td><a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/02-discover/workshop-draaiboek.md">Draaiboek</a></td></tr>
+            <tr><td>AI-agents bouwen in Copilot Studio</td><td>agentontwerp met letterlijke instructies, simulator, bouwgids voor de echte agent</td><td><a href="demo/?tour=3">Demo</a> · <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/04-design/agentontwerp.md">Ontwerp</a></td></tr>
+            <tr><td>Power Platform-oplossingen die repetitief werk automatiseren</td><td>agent flow met goedkeuring, drempels, escalatie en foutafhandeling; regels getest</td><td><a href="demo/?tour=5">Demo</a> · <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/05-build/onkostennota-flow.md">Flow</a></td></tr>
+            <tr><td>Governance: security, compliance, lifecycle</td><td>environments, DLP, rollen, ALM, 10 regels met een check in CI</td><td><a href="demo/?tour=8">Demo</a> · <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/07-govern/governance-pakket.md">Pakket</a></td></tr>
+            <tr><td>Samenwerken met Change & Adoption</td><td>doelgroepen, weerstanden, training, KPI's</td><td><a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/08-adopt/overdracht-change-adoption.md">Overdracht</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/EVIDENCE.md">Volledige mapping, met wat hier getoond wordt en wat niet geclaimd wordt</a></p>
+    </section>
+
+    <section id="beperkingen" class="wrap section">
+      <h2>Beperkingen</h2>
+      <ul class="measure">
+        <li>De agent in de demo is een <b>deterministische simulator</b> van het ontwerp, afgestemd op de 40 testvragen. Hij bewijst de ontwerpkeuzes, niet de taalkwaliteit van een echte agent.</li>
+        <li>De echte agent wordt in Copilot Studio gebouwd volgens de <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/copilot-studio/BOUWGIDS.md">bouwgids</a>; de scores komen in <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/copilot-studio/RESULTATEN.md">RESULTATEN.md</a>.</li>
+        <li>Brevan, de workshop, de documenten, de mensen en alle cijfers zijn fictief. Er was geen klant, pilot of meting.</li>
+        <li>Tarieven en functies van Microsoft: stand oktober 2026, ze veranderen vaak.</li>
+      </ul>
+      <p>Demo laadt niet? <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/tree/main/docs/screenshots">Bekijk de screenshots</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Independent portfolio case study based on a fictional organisation. It contains no confidential information from any real employer or the hiring company. All figures are illustrative assumptions — not real company data.</p>
+      <p>Philippe Godfroy · <a href="https://github.com/phlppgdfry">GitHub</a> · <a href="for/ai-automation-consultant/">Voor de rol AI & Automation Consultant</a> · Bijgewerkt 2026-10-11</p>
+    </div>
+  </footer>
+</body>
+</html>

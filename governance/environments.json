@@ -1,0 +1,9 @@
+{
+  "note": "Environment strategy of the fictional Brevan Installaties (docs/07-govern/governance-pakket.md). Illustrative assumption.",
+  "environments": [
+    { "name": "Default", "type": "default", "purpose": "persoonlijke productiviteit (eigen flows voor eigen werk); geen gedeelde bedrijfsprocessen", "dlpPolicy": "DLP-Default", "managed": true, "routing": "nieuwe makers worden doorgestuurd naar een eigen developer environment" },
+    { "name": "Dev-<maker>", "type": "developer", "purpose": "bouwen en uitproberen; één per maker, via default environment routing", "dlpPolicy": "DLP-Standaard", "managed": true },
+    { "name": "Brevan-Test", "type": "sandbox", "purpose": "testen met de testset en key users vóór productie", "dlpPolicy": "DLP-Standaard", "managed": true },
+    { "name": "Brevan-Productie", "type": "production", "purpose": "gedeelde oplossingen in gebruik; alleen managed solutions via de pipeline", "dlpPolicy": "DLP-Standaard", "managed": true }
+  ]
+}

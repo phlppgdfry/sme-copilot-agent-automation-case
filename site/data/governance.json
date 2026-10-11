@@ -1,0 +1,221 @@
+{
+  "environments": {
+    "note": "Environment strategy of the fictional Brevan Installaties (docs/07-govern/governance-pakket.md). Illustrative assumption.",
+    "environments": [
+      {
+        "name": "Default",
+        "type": "default",
+        "purpose": "persoonlijke productiviteit (eigen flows voor eigen werk); geen gedeelde bedrijfsprocessen",
+        "dlpPolicy": "DLP-Default",
+        "managed": true,
+        "routing": "nieuwe makers worden doorgestuurd naar een eigen developer environment"
+      },
+      {
+        "name": "Dev-<maker>",
+        "type": "developer",
+        "purpose": "bouwen en uitproberen; één per maker, via default environment routing",
+        "dlpPolicy": "DLP-Standaard",
+        "managed": true
+      },
+      {
+        "name": "Brevan-Test",
+        "type": "sandbox",
+        "purpose": "testen met de testset en key users vóór productie",
+        "dlpPolicy": "DLP-Standaard",
+        "managed": true
+      },
+      {
+        "name": "Brevan-Productie",
+        "type": "production",
+        "purpose": "gedeelde oplossingen in gebruik; alleen managed solutions via de pipeline",
+        "dlpPolicy": "DLP-Standaard",
+        "managed": true
+      }
+    ]
+  },
+  "policies": {
+    "note": "Two data policies (Power Platform DLP). Connector names as shown in Power Platform; classification is a proposal for this fictional SME.",
+    "policies": [
+      {
+        "name": "DLP-Default",
+        "appliesTo": [
+          "Default"
+        ],
+        "business": [
+          "SharePoint",
+          "OneDrive for Business",
+          "Office 365 Outlook",
+          "Microsoft Teams",
+          "Approvals",
+          "Office 365 Users",
+          "Planner"
+        ],
+        "nonBusiness": [],
+        "blocked": [
+          "Gmail",
+          "Outlook.com",
+          "Dropbox",
+          "Google Drive",
+          "HTTP",
+          "X (Twitter)",
+          "Dataverse"
+        ],
+        "default": "blocked",
+        "why": "In Default bouwt iedereen; alleen M365-connectors voor eigen werk. Al het andere geblokkeerd tot er een behoefte en een eigenaar is."
+      },
+      {
+        "name": "DLP-Standaard",
+        "appliesTo": [
+          "Dev-<maker>",
+          "Brevan-Test",
+          "Brevan-Productie"
+        ],
+        "business": [
+          "SharePoint",
+          "OneDrive for Business",
+          "Office 365 Outlook",
+          "Microsoft Teams",
+          "Approvals",
+          "Office 365 Users",
+          "Planner",
+          "Dataverse",
+          "Microsoft Copilot Studio",
+          "Dynamics 365 Business Central"
+        ],
+        "nonBusiness": [
+          "MSN Weather",
+          "RSS"
+        ],
+        "blocked": [
+          "Gmail",
+          "Outlook.com",
+          "Dropbox",
+          "Google Drive",
+          "X (Twitter)"
+        ],
+        "default": "nonBusiness",
+        "why": "Bedrijfsdata blijft binnen M365, Dataverse en het ERP. Nieuwe connectors komen standaard in non-business en kunnen dus niet met bedrijfsdata gemengd worden zonder beslissing."
+      }
+    ]
+  },
+  "solutions": [
+    {
+      "name": "Brevan Assist",
+      "solution": "BrevanAssist",
+      "kind": "agent",
+      "environment": "Brevan-Productie",
+      "stage": "productie",
+      "managed": true,
+      "owner": {
+        "type": "service-account",
+        "id": "svc-powerplatform"
+      },
+      "businessOwner": "HR-manager",
+      "agent": {
+        "auth": "microsoft",
+        "channels": [
+          "Microsoft Teams"
+        ],
+        "orchestration": "generative"
+      },
+      "knowledge": [
+        {
+          "name": "Personeelszaken – Gepubliceerd",
+          "type": "SharePoint",
+          "owner": "HR-manager"
+        }
+      ],
+      "flows": [
+        {
+          "name": "Onkostennota indienen",
+          "connectors": [
+            "Microsoft Copilot Studio",
+            "SharePoint",
+            "Approvals",
+            "Microsoft Teams",
+            "Office 365 Users"
+          ],
+          "writes": true,
+          "finance": true,
+          "humanApproval": true
+        }
+      ],
+      "environmentVariables": [
+        "HR_KnowledgeSiteUrl",
+        "Onkosten_ListUrl",
+        "Onkosten_FinanceLimit"
+      ],
+      "hardcodedUrls": [],
+      "testset": {
+        "cases": 40,
+        "refusalCases": 8,
+        "lastRun": {
+          "config": "v2",
+          "passed": 40,
+          "total": 40
+        }
+      }
+    },
+    {
+      "name": "Offerte-helper (binnendienst)",
+      "solution": "OfferteHelper",
+      "kind": "agent",
+      "environment": "Dev-<maker>",
+      "stage": "dev",
+      "managed": false,
+      "owner": {
+        "type": "person",
+        "id": "medewerker binnendienst"
+      },
+      "businessOwner": "verantwoordelijke binnendienst",
+      "agent": {
+        "auth": "microsoft",
+        "channels": [
+          "Microsoft Teams"
+        ],
+        "orchestration": "generative"
+      },
+      "knowledge": [
+        {
+          "name": "Offertes 2024–2026 (hele map)",
+          "type": "SharePoint",
+          "owner": null
+        }
+      ],
+      "flows": [],
+      "environmentVariables": [],
+      "hardcodedUrls": [],
+      "testset": null
+    },
+    {
+      "name": "Urenstaten wekelijks doorsturen",
+      "solution": null,
+      "kind": "flow",
+      "environment": "Default",
+      "stage": "in gebruik",
+      "managed": false,
+      "owner": {
+        "type": "person",
+        "id": "technicus (persoonlijk account)"
+      },
+      "businessOwner": null,
+      "flows": [
+        {
+          "name": "Urenstaten ploeg → privémail",
+          "connectors": [
+            "SharePoint",
+            "Gmail"
+          ],
+          "writes": false,
+          "finance": false,
+          "humanApproval": false
+        }
+      ],
+      "environmentVariables": [],
+      "hardcodedUrls": [
+        "https://brevan.sharepoint.example/sites/planning/Urenstaten"
+      ],
+      "found": "Gevonden door de IT-verantwoordelijke. Behoefte achter de flow: urenstaten van de ploeg thuis kunnen nakijken (docs/02-discover/workshopnotities.md)."
+    }
+  ]
+}

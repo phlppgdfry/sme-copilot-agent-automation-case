@@ -1,0 +1,197 @@
+{
+  "note": "Fictional workshop output (2,5 h, 9 participants). Illustrative assumption.",
+  "cards": [
+    {
+      "id": "K-01",
+      "rol": "technicus",
+      "tekst": "Ik weet nooit tegen wanneer mijn onkosten binnen moeten",
+      "cluster": "UC-01"
+    },
+    {
+      "id": "K-02",
+      "rol": "technicus",
+      "tekst": "Bonnetjes gaan verloren in mijn bestelwagen",
+      "cluster": "UC-02"
+    },
+    {
+      "id": "K-03",
+      "rol": "technicus",
+      "tekst": "Ik stuur een foto via WhatsApp naar mijn ploegbaas en hoor er niets meer van",
+      "cluster": "UC-02"
+    },
+    {
+      "id": "K-04",
+      "rol": "technicus",
+      "tekst": "Projectcode? Ik weet alleen het adres van de werf",
+      "cluster": "UC-02"
+    },
+    {
+      "id": "K-05",
+      "rol": "technicus",
+      "tekst": "Hoeveel verlof heb ik nog — ik moet HR bellen",
+      "cluster": "UC-01"
+    },
+    {
+      "id": "K-06",
+      "rol": "technicus",
+      "tekst": "Nieuwe werkschoenen: wie moet ik dat vragen?",
+      "cluster": "UC-01"
+    },
+    {
+      "id": "K-07",
+      "rol": "technicus",
+      "tekst": "Welke procedure voor werken op hoogte? PDF staat ergens",
+      "cluster": "UC-06"
+    },
+    {
+      "id": "K-08",
+      "rol": "technicus",
+      "tekst": "Uren van de ploeg nakijken kan alleen op kantoor",
+      "cluster": "R3"
+    },
+    {
+      "id": "K-09",
+      "rol": "ploegbaas",
+      "tekst": "Goedkeuren op mijn gsm tussen twee werven: nee bedankt",
+      "cluster": "UC-02"
+    },
+    {
+      "id": "K-10",
+      "rol": "ploegbaas",
+      "tekst": "Na het werfoverleg weet niemand meer wat afgesproken is",
+      "cluster": "UC-05"
+    },
+    {
+      "id": "K-11",
+      "rol": "ploegbaas",
+      "tekst": "Nieuwe technicus: altijd iets vergeten (gsm, kledij, VCA)",
+      "cluster": "UC-10"
+    },
+    {
+      "id": "K-12",
+      "rol": "ploegbaas",
+      "tekst": "Spoedinterventies gooien de planning om",
+      "cluster": "UC-07"
+    },
+    {
+      "id": "K-13",
+      "rol": "HR",
+      "tekst": "25 telefoons per dag, meestal dezelfde vragen",
+      "cluster": "UC-01"
+    },
+    {
+      "id": "K-14",
+      "rol": "HR",
+      "tekst": "Ik weet niet welke versie van het handboek mensen lezen",
+      "cluster": "UC-01"
+    },
+    {
+      "id": "K-15",
+      "rol": "HR",
+      "tekst": "Onboardingchecklist op papier",
+      "cluster": "UC-10"
+    },
+    {
+      "id": "K-16",
+      "rol": "HR",
+      "tekst": "Ik wil niet dat een chatbot foute dingen zegt over verlof",
+      "cluster": "UC-01"
+    },
+    {
+      "id": "K-17",
+      "rol": "boekhouding",
+      "tekst": "Onkostennota's komen weken te laat",
+      "cluster": "UC-02"
+    },
+    {
+      "id": "K-18",
+      "rol": "boekhouding",
+      "tekst": "Elke nota moet aan een project hangen",
+      "cluster": "UC-02"
+    },
+    {
+      "id": "K-19",
+      "rol": "boekhouding",
+      "tekst": "300 leveranciersfacturen per maand overtypen",
+      "cluster": "UC-09"
+    },
+    {
+      "id": "K-20",
+      "rol": "boekhouding",
+      "tekst": "Werkbonnen overtypen in Business Central",
+      "cluster": "UC-03"
+    },
+    {
+      "id": "K-21",
+      "rol": "binnendienst",
+      "tekst": "Oude offertes terugzoeken kost uren",
+      "cluster": "UC-04"
+    },
+    {
+      "id": "K-22",
+      "rol": "binnendienst",
+      "tekst": "Klanten bellen voor de status van hun interventie",
+      "cluster": "UC-08"
+    },
+    {
+      "id": "K-23",
+      "rol": "binnendienst",
+      "tekst": "Onderhoudscontracten: niemand verwittigt de klant",
+      "cluster": "UC-11"
+    },
+    {
+      "id": "K-24",
+      "rol": "binnendienst",
+      "tekst": "Mails aan klanten herschrijven tot ze beleefd klinken",
+      "cluster": "UC-04"
+    },
+    {
+      "id": "K-25",
+      "rol": "planning",
+      "tekst": "Planning in Excel, drie versies tegelijk",
+      "cluster": "UC-07"
+    },
+    {
+      "id": "K-26",
+      "rol": "planning",
+      "tekst": "Werkbonnen komen onvolledig binnen",
+      "cluster": "UC-03"
+    },
+    {
+      "id": "K-27",
+      "rol": "directie",
+      "tekst": "We betalen voor Copilot en zien niets",
+      "cluster": "UC-04"
+    },
+    {
+      "id": "K-28",
+      "rol": "directie",
+      "tekst": "Ik wil alles over een klant kunnen vragen",
+      "cluster": "UC-12"
+    },
+    {
+      "id": "K-29",
+      "rol": "directie",
+      "tekst": "Wat kost dit per maand?",
+      "cluster": "kost"
+    },
+    {
+      "id": "K-30",
+      "rol": "IT",
+      "tekst": "Er draaien flows waarvan ik niet weet wie ze maakte",
+      "cluster": "R3"
+    },
+    {
+      "id": "K-31",
+      "rol": "IT",
+      "tekst": "Ik heb geen tijd om alles te controleren",
+      "cluster": "governance"
+    },
+    {
+      "id": "K-32",
+      "rol": "IT",
+      "tekst": "Wie heeft toegang tot de map Lonen?",
+      "cluster": "R2"
+    }
+  ]
+}

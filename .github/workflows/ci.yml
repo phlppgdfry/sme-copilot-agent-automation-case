@@ -1,0 +1,31 @@
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Tests (test set, flow rules, governance rules)
+        run: node --test tests/*.test.mjs
+
+      - name: Derived data is up to date (site/data, copilot-studio/testset-import.csv)
+        run: |
+          node scripts/build-site-data.mjs
+          git diff --exit-code -- site/data copilot-studio/testset-import.csv
+
+      - name: Links
+        run: python3 scripts/check-links.py

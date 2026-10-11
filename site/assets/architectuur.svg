@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif" role="img" aria-labelledby="t d">
+<title id="t">Architectuur Brevan Assist</title>
+<desc id="d">Een technicus stelt in Teams een vraag aan de agent Brevan Assist. De agent past eerst zijn instructies toe, roept dan eventueel de agent flow Onkostennota indienen aan, en zoekt anders in de SharePoint-bibliotheek Personeelszaken – Gepubliceerd. De flow maakt een item in de lijst Onkostennota's en vraagt goedkeuring aan de ploegbaas, boven 250 euro ook aan de boekhouding. Agent en flow zitten in de solution BrevanAssist in Brevan-Productie onder DLP-Standaard.</desc>
+<rect width="960" height="420" rx="12" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f4e79"/></marker></defs>
+<rect x="250" y="30" width="420" height="300" rx="10" fill="#eef3f8" stroke="#1f4e79" stroke-dasharray="6 4"/>
+<text x="266" y="54" font-size="13" fill="#1f4e79" font-weight="700">Solution BrevanAssist · Brevan-Productie · DLP-Standaard</text>
+<g font-size="14" fill="#1b2430">
+<rect x="24" y="150" width="170" height="70" rx="8" fill="#fff" stroke="#5b6675"/><text x="109" y="180" text-anchor="middle" font-weight="700">Technicus</text><text x="109" y="200" text-anchor="middle" fill="#5b6675">Teams op de gsm</text>
+<rect x="280" y="80" width="360" height="110" rx="8" fill="#fff" stroke="#1f4e79" stroke-width="2"/><text x="460" y="106" text-anchor="middle" font-weight="700">Brevan Assist — Copilot Studio-agent</text>
+<text x="300" y="132" fill="#1b2430">1  Instructies: wat hij níet doet (G1–G5)</text><text x="300" y="154">2  Tool kiezen op beschrijving</text><text x="300" y="176">3  Kennis zoeken, antwoord mét bron</text>
+<rect x="280" y="230" width="360" height="70" rx="8" fill="#fff" stroke="#1f4e79" stroke-width="2"/><text x="460" y="258" text-anchor="middle" font-weight="700">Agent flow: Onkostennota indienen</text><text x="460" y="280" text-anchor="middle" fill="#5b6675">controleert opnieuw · foutafhandeling</text>
+<rect x="720" y="80" width="216" height="80" rx="8" fill="#fff" stroke="#5b6675"/><text x="828" y="110" text-anchor="middle" font-weight="700">SharePoint</text><text x="828" y="130" text-anchor="middle" fill="#5b6675">Personeelszaken –</text><text x="828" y="148" text-anchor="middle" fill="#5b6675">Gepubliceerd (HR)</text>
+<rect x="720" y="200" width="216" height="56" rx="8" fill="#fff" stroke="#5b6675"/><text x="828" y="226" text-anchor="middle" font-weight="700">Lijst Onkostennota's</text><text x="828" y="245" text-anchor="middle" fill="#5b6675">status + foto</text>
+<rect x="280" y="350" width="170" height="52" rx="8" fill="#fff" stroke="#1e7b4f"/><text x="365" y="374" text-anchor="middle" font-weight="700">Ploegbaas</text><text x="365" y="392" text-anchor="middle" fill="#5b6675">Teams, gebundeld 16u</text>
+<rect x="490" y="350" width="150" height="52" rx="8" fill="#fff" stroke="#1e7b4f"/><text x="565" y="374" text-anchor="middle" font-weight="700">Boekhouding</text><text x="565" y="392" text-anchor="middle" fill="#5b6675">boven €250</text>
+</g>
+<g stroke="#1f4e79" stroke-width="2" fill="none" marker-end="url(#a)">
+<path d="M194 185 L278 140"/><path d="M640 130 L718 120"/><path d="M460 190 L460 228"/><path d="M640 262 L718 232"/><path d="M365 300 L365 348"/><path d="M450 376 L488 376"/>
+</g>
+<text x="24" y="250" font-size="12" fill="#5b6675">Entra ID: de agent werkt</text><text x="24" y="266" font-size="12" fill="#5b6675">met de rechten van de gebruiker</text>
+</svg>

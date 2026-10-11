@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brevan Assist — demo met rondleiding</title>
+  <meta name="description" content="Klikbare demo van een AI- en automatiseringstraject voor een fictieve kmo: workshop, use cases, agent met bron en goedkeuringsflow, testset en governance-check.">
+  <meta property="og:title" content="Brevan Assist — demo (2 minuten)">
+  <meta property="og:description" content="Workshop → use cases → agent met bron en goedkeuring → testset → governance. Fictieve organisatie, gesimuleerde agent.">
+  <meta property="og:image" content="../assets/og-image.png">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../">Brevan Assist</a>
+      <nav aria-label="Navigatie">
+        <a href="../">Case</a>
+        <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="demo-bar">
+      <div>
+        <p class="eyebrow">Fictieve organisatie · <span class="label-sim">gesimuleerde agent</span></p>
+        <h1 style="font-size:clamp(24px,4vw,34px);margin:0">Van workshop tot agent die je kan vertrouwen</h1>
+      </div>
+      <div class="cta-row">
+        <button class="btn-sm primary" id="btn-tour" type="button">Rondleiding (2 min)</button>
+        <button class="btn-sm" id="btn-reset" type="button">Reset demo</button>
+      </div>
+    </div>
+    <p class="note">De agent hier is een deterministische simulator van het ontwerp — geen Copilot Studio en geen taalmodel. Hij voert dezelfde instructies, kennisbron en tool uit, zodat de keuzes testbaar zijn. De echte agent: <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/copilot-studio/README.md">copilot-studio/</a>.</p>
+
+    <div class="tabs" role="tablist" aria-label="Stappen in het traject">
+      <button role="tab" id="tab-workshop" aria-controls="panel-workshop" aria-selected="true">1 Workshop</button>
+      <button role="tab" id="tab-usecases" aria-controls="panel-usecases" aria-selected="false">2 Use cases</button>
+      <button role="tab" id="tab-agent" aria-controls="panel-agent" aria-selected="false">3 Agent</button>
+      <button role="tab" id="tab-testset" aria-controls="panel-testset" aria-selected="false">4 Testset</button>
+      <button role="tab" id="tab-governance" aria-controls="panel-governance" aria-selected="false">5 Governance</button>
+      <button role="tab" id="tab-handover" aria-controls="panel-handover" aria-selected="false">6 Overdracht</button>
+    </div>
+
+    <section class="panel active" id="panel-workshop" role="tabpanel" aria-labelledby="tab-workshop">
+      <p class="measure">32 kaartjes uit de discovery-workshop (2,5 uur, 9 deelnemers). De vraag was niet "waar kan AI helpen?" maar <b>"wat doe je elke week opnieuw?"</b>. Klik een cluster om te zien welke kaartjes samen één use case vormen.</p>
+      <div class="chips" id="cluster-filter" aria-label="Filter op cluster"></div>
+      <div class="board" id="board"></div>
+      <p class="note">Illustrative assumption — fictional workshop.</p>
+    </section>
+
+    <section class="panel" id="panel-usecases" role="tabpanel" aria-labelledby="tab-usecases">
+      <p class="measure">12 use cases, gescoord op waarde, haalbaarheid en risico. Verschuif de gewichten: de top verandert, de twee "niet doen"-keuzes blijven staan met hun reden.</p>
+      <div class="weights" id="weights">
+        <label>Waarde <output id="w-value-out">40</output><input type="range" id="w-value" min="0" max="100" value="40"></label>
+        <label>Haalbaarheid <output id="w-feas-out">35</output><input type="range" id="w-feas" min="0" max="100" value="35"></label>
+        <label>Laag risico <output id="w-risk-out">25</output><input type="range" id="w-risk" min="0" max="100" value="25"></label>
+      </div>
+      <div class="table-wrap" id="uc-table"></div>
+      <p class="note">Scores uit de workshop en een inschatting met IT. Illustrative assumption. <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/03-prioritise/use-case-portfolio.md">Volledig portfolio</a></p>
+    </section>
+
+    <section class="panel" id="panel-agent" role="tabpanel" aria-labelledby="tab-agent">
+      <div class="demo-grid">
+        <div>
+          <div class="chips" role="group" aria-label="Kennisbron">
+            <span class="muted" style="font-size:13px;align-self:center">Kennisbron:</span>
+            <button class="btn-sm" type="button" data-config="v2" aria-pressed="true">Gepubliceerde bibliotheek</button>
+            <button class="btn-sm" type="button" data-config="v1" aria-pressed="false">Hele HR-site</button>
+          </div>
+          <div class="chat" id="chat" aria-live="polite"></div>
+          <div class="chips" id="suggestions" aria-label="Voorbeeldvragen"></div>
+          <form class="chat-form" id="chat-form">
+            <input id="chat-input" autocomplete="off" aria-label="Vraag aan Brevan Assist" placeholder="Stel een vraag over onkosten, verlof, kledij…">
+            <button class="btn-sm primary" type="submit">Vraag</button>
+          </form>
+          <div id="claim" class="card hidden" style="margin-top:12px"></div>
+        </div>
+        <aside class="stack">
+          <div class="card" id="activity">
+            <h3>Activity map</h3>
+            <p class="muted" style="font-size:14px">Welke regel, tool of bron de agent koos.</p>
+            <ol class="trace" id="trace"></ol>
+          </div>
+          <div class="card">
+            <h3>Event-log (gesimuleerd)</h3>
+            <ul class="log" id="log"><li class="muted">Nog geen flow gestart.</li></ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-testset" role="tabpanel" aria-labelledby="tab-testset">
+      <p class="measure">40 testvragen, opgesteld met HR vóór de bouw: 24 gewone, 8 randgevallen, 8 die de agent moet weigeren of doorverwijzen. Zelfde instructies, twee kennisbronnen.</p>
+      <div class="chips" role="group" aria-label="Kennisbron voor de testrun">
+        <button class="btn-sm" type="button" data-run="v1">Draai met hele HR-site</button>
+        <button class="btn-sm" type="button" data-run="v2">Draai met gepubliceerde bibliotheek</button>
+      </div>
+      <div class="grid cards-4" id="test-summary"></div>
+      <div class="demo-grid" style="margin-top:16px">
+        <div class="table-wrap" id="test-table"></div>
+        <div class="card" id="test-detail"><p class="muted">Klik een testvraag voor het antwoord, de bron en de reden.</p></div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-governance" role="tabpanel" aria-labelledby="tab-governance">
+      <p class="measure">Elke oplossing wordt getoetst aan tien regels voor ze naar test of productie mag. Dezelfde check draait in CI op de manifesten in <code>governance/solutions/</code>.</p>
+      <div class="grid cards-3" id="gov-results"></div>
+      <h3 style="margin-top:24px">De regels</h3>
+      <div class="table-wrap" id="gov-rules"></div>
+    </section>
+
+    <section class="panel" id="panel-handover" role="tabpanel" aria-labelledby="tab-handover">
+      <div class="grid cards-3">
+        <article class="card"><h3>Doelgroepen</h3><p>Technici (92) via de ochtendbriefing; ploegbazen (14) per vestiging; HR en boekhouding in een werksessie; binnendienst: Copilot-training per rol.</p></article>
+        <article class="card"><h3>Weerstand</h3><p>Ploegbazen: "goedkeuren tussen twee werven: nee". Antwoord: één gebundelde melding om 16u, vervanger, escalatie na 5 dagen — en een ploegbaas als champion.</p></article>
+        <article class="card"><h3>Meten (na 3 maanden)</h3><p>HR-vragen −30% · deflectie ≥60% · onkostennota's ≤7 dagen · testscore ≥95% · verbruik binnen limiet. Guardrail: ≤10 min/dag per ploegbaas.</p></article>
+      </div>
+      <p class="note">Doelen zijn illustrative assumptions. <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/08-adopt/overdracht-change-adoption.md">Overdracht</a> · <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/docs/08-adopt/kpis-en-meting.md">KPI's</a></p>
+      <div class="card" id="limits" style="margin-top:16px">
+        <h3>Wat deze demo niet is</h3>
+        <ul>
+          <li>De agent is een <b>simulator</b> van het ontwerp, afgestemd op de 40 testvragen; hij bewijst de ontwerpkeuzes, niet de taalkwaliteit van een echte agent.</li>
+          <li>De echte agent wordt in Copilot Studio gebouwd met dezelfde instructies en testset: <a href="https://github.com/phlppgdfry/sme-copilot-agent-automation-case/blob/main/copilot-studio/RESULTATEN.md">resultaten</a>.</li>
+          <li>Brevan, de workshop, de documenten en alle cijfers zijn fictief. Er was geen klant, pilot of meting.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Independent portfolio case study based on a fictional organisation. It contains no confidential information from any real employer or the hiring company. All figures are illustrative assumptions — not real company data.</p>
+      <p>Philippe Godfroy · <a href="https://github.com/phlppgdfry">GitHub</a> · Bijgewerkt 2026-10-11</p>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/demo.mjs"></script>
+</body>
+</html>

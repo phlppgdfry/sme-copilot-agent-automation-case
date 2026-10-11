@@ -1,0 +1,23 @@
+{
+  "note": "Two data policies (Power Platform DLP). Connector names as shown in Power Platform; classification is a proposal for this fictional SME.",
+  "policies": [
+    {
+      "name": "DLP-Default",
+      "appliesTo": ["Default"],
+      "business": ["SharePoint", "OneDrive for Business", "Office 365 Outlook", "Microsoft Teams", "Approvals", "Office 365 Users", "Planner"],
+      "nonBusiness": [],
+      "blocked": ["Gmail", "Outlook.com", "Dropbox", "Google Drive", "HTTP", "X (Twitter)", "Dataverse"],
+      "default": "blocked",
+      "why": "In Default bouwt iedereen; alleen M365-connectors voor eigen werk. Al het andere geblokkeerd tot er een behoefte en een eigenaar is."
+    },
+    {
+      "name": "DLP-Standaard",
+      "appliesTo": ["Dev-<maker>", "Brevan-Test", "Brevan-Productie"],
+      "business": ["SharePoint", "OneDrive for Business", "Office 365 Outlook", "Microsoft Teams", "Approvals", "Office 365 Users", "Planner", "Dataverse", "Microsoft Copilot Studio", "Dynamics 365 Business Central"],
+      "nonBusiness": ["MSN Weather", "RSS"],
+      "blocked": ["Gmail", "Outlook.com", "Dropbox", "Google Drive", "X (Twitter)"],
+      "default": "nonBusiness",
+      "why": "Bedrijfsdata blijft binnen M365, Dataverse en het ERP. Nieuwe connectors komen standaard in non-business en kunnen dus niet met bedrijfsdata gemengd worden zonder beslissing."
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "rules": [
+    {
+      "id": "GOV-01",
+      "title": "Geen bedrijfs- en niet-bedrijfsconnectors samen",
+      "why": "DLP: bedrijfsdata mag niet naar een niet-bedrijfsconnector stromen."
+    },
+    {
+      "id": "GOV-02",
+      "title": "Geen geblokkeerde connectors",
+      "why": "DLP: deze connectors zijn in deze environment niet toegestaan."
+    },
+    {
+      "id": "GOV-03",
+      "title": "Gedeelde processen niet in Default of een developer environment",
+      "why": "Wat anderen nodig hebben, hoort in Test of Productie met ALM."
+    },
+    {
+      "id": "GOV-04",
+      "title": "Eigenaar is een serviceaccount zodra anderen ervan afhangen",
+      "why": "Vertrekt de maker, dan stopt de oplossing niet."
+    },
+    {
+      "id": "GOV-05",
+      "title": "Managed solution in test en productie",
+      "why": "Geen handmatige wijzigingen buiten dev; uitrol via de pipeline."
+    },
+    {
+      "id": "GOV-06",
+      "title": "Interne agent met Microsoft-authenticatie",
+      "why": "De agent antwoordt met de rechten van de gebruiker en is niet anoniem bereikbaar."
+    },
+    {
+      "id": "GOV-07",
+      "title": "Elke kennisbron heeft een eigenaar",
+      "why": "Een bron zonder eigenaar veroudert; de agent geeft dan foute antwoorden."
+    },
+    {
+      "id": "GOV-08",
+      "title": "Agent heeft een testset (≥20 vragen, ≥15% weigervragen, ≥95% geslaagd)",
+      "why": "Kwaliteit is een cijfer, geen gevoel."
+    },
+    {
+      "id": "GOV-09",
+      "title": "Configuratie via environment variables",
+      "why": "Dezelfde solution moet in dev, test en productie werken."
+    },
+    {
+      "id": "GOV-10",
+      "title": "Menselijke goedkeuring bij financiële acties",
+      "why": "Een agent boekt of betaalt niet zelf."
+    }
+  ],
+  "results": [
+    {
+      "name": "Brevan Assist",
+      "environment": "Brevan-Productie",
+      "stage": "productie",
+      "status": "ok",
+      "findings": []
+    },
+    {
+      "name": "Offerte-helper (binnendienst)",
+      "environment": "Dev-<maker>",
+      "stage": "dev",
+      "status": "warn",
+      "findings": [
+        {
+          "rule": "GOV-07",
+          "severity": "warning",
+          "message": "Kennisbron \"Offertes 2024–2026 (hele map)\" heeft geen eigenaar."
+        },
+        {
+          "rule": "GOV-08",
+          "severity": "warning",
+          "message": "Geen testset."
+        }
+      ]
+    },
+    {
+      "name": "Urenstaten wekelijks doorsturen",
+      "environment": "Default",
+      "stage": "in gebruik",
+      "status": "block",
+      "findings": [
+        {
+          "rule": "GOV-02",
+          "severity": "error",
+          "message": "Urenstaten ploeg → privémail: Gmail is geblokkeerd in DLP-Default."
+        },
+        {
+          "rule": "GOV-03",
+          "severity": "error",
+          "message": "In gebruik door anderen maar staat in Default (default)."
+        },
+        {
+          "rule": "GOV-04",
+          "severity": "error",
+          "message": "Eigenaar is technicus (persoonlijk account); zet een serviceaccount als eigenaar."
+        },
+        {
+          "rule": "GOV-09",
+          "severity": "warning",
+          "message": "Vaste URL in plaats van environment variable: https://brevan.sharepoint.example/sites/planning/Urenstaten."
+        }
+      ]
+    }
+  ]
+}
